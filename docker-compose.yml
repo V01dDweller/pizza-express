@@ -17,7 +17,7 @@ services:
     networks:
       - pizza_net
     ports:
-      - 3000:3000
+      - 8081:3000
     healthcheck:
       test: ["CMD-SHELL", "curl http://localhost:3000"]
       interval: 10s

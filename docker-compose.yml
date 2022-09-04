@@ -10,7 +10,7 @@ services:
       - pizza_net
     restart: unless-stopped
   pizza_express:
-    image: pizza:latest
+    image: v01ddweller/pizza:latest
     container_name: test_pizza
     environment:
       - TZ=America/New_York

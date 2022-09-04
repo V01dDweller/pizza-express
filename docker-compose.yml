@@ -24,7 +24,6 @@ services:
       timeout: 5s
       retries: 5
     depends_on:
-      - pizza-redis                                                                                                                                                                 links:
       - pizza-redis
     restart: unless-stopped
 networks:

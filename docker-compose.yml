@@ -1,0 +1,31 @@
+---
+version: '3'
+services:
+  pizza-redis:
+    image: redis:latest
+    container_name: redis
+    environment:
+      - TZ=America/New_York
+    networks:
+      - pizza_net
+    restart: unless-stopped
+  pizza_express:
+    image: pizza:latest
+    container_name: test_pizza
+    environment:
+      - TZ=America/New_York
+    networks:
+      - pizza_net
+    ports:
+      - 3000:3000
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      - pizza-redis                                                                                                                                                                 links:
+      - pizza-redis
+    restart: unless-stopped
+networks:
+  pizza_net:

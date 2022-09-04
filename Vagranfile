@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
   $post_config = <<-'SCRIPT'
   # Install some tools
   apt update
-  apt -y install vim git curl wget tree jq
+  apt -y install vim git curl wget tree jq apt-transport-https ca-certificates curl software-properties-common
   SCRIPT
 
 # Create the VM

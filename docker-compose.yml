@@ -10,7 +10,7 @@ services:
       - TZ=America/New_York
     networks:
       - pizza-net
-    restart: unless-stopped
+    restart: always
   pizza-express:
     image: v01ddweller/pizza:latest
     container_name: test-pizza
@@ -28,6 +28,6 @@ services:
       retries: 5
     depends_on:
       - pizza-redis
-    restart: unless-stopped
 networks:
   pizza-net:
+    restart: always

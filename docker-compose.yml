@@ -7,16 +7,16 @@ services:
     environment:
       - TZ=America/New_York
     networks:
-      - pizza_net
+      - pizza-net
     restart: unless-stopped
-  pizza_express:
+  pizza-express:
     image: v01ddweller/pizza:latest
-    container_name: test_pizza
+    container_name: test-pizza
     environment:
       - TZ=America/New_York
       - REDIS=pizza-redis
     networks:
-      - pizza_net
+      - pizza-net
     ports:
       - 8081:3000
     healthcheck:
@@ -28,4 +28,4 @@ services:
       - pizza-redis
     restart: unless-stopped
 networks:
-  pizza_net:
+  pizza-net:

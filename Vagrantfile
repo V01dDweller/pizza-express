@@ -14,6 +14,10 @@ Vagrant.configure("2") do |config|
   systemctl status docker
   usermod -aG docker vagrant
   # Install NodeJS 14.20.0
+  curl -sL https://deb.nodesource.com/setup_14.x -o /tmp/nodesource_setup.sh
+  bash /tmp/nodesource_setup.sh
+  apt -y install nodejs
+  rm /tmp/nodesource_setup.sh
   SCRIPT
 
 # Create the VM

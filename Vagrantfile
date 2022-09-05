@@ -18,6 +18,8 @@ Vagrant.configure("2") do |config|
   bash /tmp/nodesource_setup.sh
   apt -y install nodejs
   rm /tmp/nodesource_setup.sh
+  sudo -u vagrant git clone https://github.com/V01dDweller/dotfiles.git /home/vagrant/dotfiles
+  sudo -u vagrant /home/vagrant/dotfiles/install.py
   SCRIPT
 
 # Create the VM

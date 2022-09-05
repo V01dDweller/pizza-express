@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
   rm /tmp/nodesource_setup.sh
   sudo -u vagrant git clone https://github.com/V01dDweller/dotfiles.git /home/vagrant/dotfiles
   sudo -u vagrant /home/vagrant/dotfiles/install.py
+  sudo -u vagrant curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | sudo -u vagrant bash
   SCRIPT
 
 # Create the VM

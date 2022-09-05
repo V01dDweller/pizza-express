@@ -5,10 +5,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const generateId = require('./lib/generate-id');
+const REDIS = process.env.REDIS || 'localhost';
 
 var redis = require("redis"),
   client = redis.createClient({
-    host: 'pizza-redis',
+    host: REDIS,
     port: '6379'
   });
 

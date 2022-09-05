@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "noname-01" do |subconfig|
     subconfig.vm.box = "bento/ubuntu-22.04"
     subconfig.vm.hostname = "noname-01"
+    subconfig.vm.network "forwarded_port", guest: 3000, host: 3000
     subconfig.vm.network "forwarded_port", guest: 8081, host: 8081
   end
 

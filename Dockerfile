@@ -3,5 +3,5 @@ RUN umask 2
 RUN mkdir /opt/pizza_express
 WORKDIR /opt/pizza_express
 COPY lib test views server.js package.json ./
-RUN npm install package.json
+RUN npm install package.json express redis
 CMD ["forever", "server.js"]

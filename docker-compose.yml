@@ -8,8 +8,6 @@ services:
       - 6379:6379
     environment:
       - TZ=America/New_York
-    networks:
-      - pizza-net
     restart: always
   pizza-express:
     image: v01ddweller/pizza:latest
@@ -17,8 +15,6 @@ services:
     environment:
       - TZ=America/New_York
       - REDIS=pizza-redis
-    networks:
-      - pizza-net
     ports:
       - 8081:3000
     healthcheck:
@@ -28,6 +24,4 @@ services:
       retries: 5
     depends_on:
       - pizza-redis
-networks:
-  pizza-net:
     restart: always

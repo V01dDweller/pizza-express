@@ -8,6 +8,6 @@ ADD test ./test
 ADD views ./views
 COPY server.js package.json ./
 RUN npm install package.json express redis request mocha
-RUN chown -R nodejs:nodejs /opt/pizza_express
-USER nodejs
-CMD ["forever", "server.js"]
+RUN chown -R node:node /opt/pizza_express
+USER node
+CMD ["node", "server.js"]

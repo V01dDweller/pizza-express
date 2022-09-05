@@ -1,4 +1,4 @@
-FROM jelastic/nodejs:14.20.0-forever
+FROM node:14.20.0-alpine3.16
 RUN umask 2
 RUN mkdir /opt/pizza_express
 WORKDIR /opt/pizza_express

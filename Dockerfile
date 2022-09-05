@@ -1,4 +1,5 @@
 FROM node:14.20.0-alpine3.16
+RUN apk --no-cache add curl
 RUN umask 2
 RUN mkdir /opt/pizza_express
 WORKDIR /opt/pizza_express

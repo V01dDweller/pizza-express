@@ -22,6 +22,17 @@ Vagrant.configure("2") do |config|
   sudo -u vagrant /home/vagrant/dotfiles/install.py
   sudo -u vagrant rm -rf /home/vagrant/dotfile_*
   sudo -u vagrant curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | sudo -u vagrant bash
+  # Install kubectl
+  apt-get install -y ca-certificates curl
+  apt-get install -y apt-transport-https
+  curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  apt-get update
+  apt-get install -y kubectl
+  # Install minikube
+  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+  install minikube-linux-amd64 /usr/local/bin/minikube
+  rm minikube-linux-amd64
   SCRIPT
 
 # Create the VM

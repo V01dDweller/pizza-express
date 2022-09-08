@@ -33,6 +33,10 @@ Vagrant.configure("2") do |config|
   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
   install minikube-linux-amd64 /usr/local/bin/minikube
   rm minikube-linux-amd64
+  # Install kompose
+  wget https://github.com/kubernetes/kompose/releases/download/v1.26.1/kompose_1.26.1_amd64.deb
+  apt -y install ./kompose_1.26.1_amd64.deb
+  rm kompose_1.26.1_amd64.deb
   # Check out the project
   sudo -u vagrant git clone https://github.com/V01dDweller/pizza-express.git /home/vagrant/pizza-express
   SCRIPT
